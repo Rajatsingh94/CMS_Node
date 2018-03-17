@@ -1,0 +1,2 @@
++*.C linguist-language=NodeJs
++*.H linguist-language=NodeJs
