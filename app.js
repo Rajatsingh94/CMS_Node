@@ -3,7 +3,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const exphbs = require('express-handlebars');
-const main = require('./routes/home/main');
+const home = require('./routes/home/main');
+const admin = require('./routes/admin/main');
 
 //joining with public folder to access
 app.use(express.static(path.join(__dirname,'public')));
@@ -14,7 +15,8 @@ app.set('view engine','hbs');
 
 //routes
 
-app.use('/', main);
+app.use('/', home);
+app.use('/admin',admin);
 
 //port listening
 app.listen(3000,()=>{
