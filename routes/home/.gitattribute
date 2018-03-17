@@ -1,2 +1,2 @@
-+*.C linguist-language=NodeJs
-+*.H linguist-language=NodeJs
+$ cat .gitattributes
+*.rb linguist-language=NodeJs
