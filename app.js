@@ -5,6 +5,7 @@ const app = express();
 const exphbs = require('express-handlebars');
 const home = require('./routes/home/main');
 const admin = require('./routes/admin/main');
+const posts = require('./routes/admin/posts');
 
 const mongoose = require('mongoose');
 
@@ -24,6 +25,7 @@ app.set('view engine','hbs');
 
 app.use('/', home);
 app.use('/admin',admin);
+app.use('/admin/posts', posts);
 
 //port listening
 app.listen(3000,()=>{
