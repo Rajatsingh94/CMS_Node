@@ -11,9 +11,10 @@ router.get('/', (req,res)=>{
     res.render('admin/index');
 })
 
-router.get('/dashboard',(req,res)=>{
-    res.render('admin/dashboard');
-})
 
+
+router.get('/posts',(req,res)=>{
+    res.send('It works');
+})
 
 module.exports= router;

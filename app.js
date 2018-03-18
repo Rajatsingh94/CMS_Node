@@ -6,6 +6,13 @@ const exphbs = require('express-handlebars');
 const home = require('./routes/home/main');
 const admin = require('./routes/admin/main');
 
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/cms').then((db)=>{
+    console.log('Mongo connected');
+}).catch(error => console.log(error));
+
+
 //joining with public folder to access
 app.use(express.static(path.join(__dirname,'public')));
 
