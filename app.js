@@ -5,8 +5,8 @@ const app = express();
 const exphbs = require('express-handlebars');
 const home = require('./routes/home/main');
 const admin = require('./routes/admin/main');
-const posts = require('./routes/admin/posts');
-
+const bodyparser = require('body-parser');
+const fileupload = require('express-fileupload');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/cms').then((db)=>{
@@ -21,11 +21,18 @@ app.use(express.static(path.join(__dirname,'public')));
 app.engine('hbs',exphbs({defaultLayout: 'main.hbs'}));
 app.set('view engine','hbs');
 
+//fileupload
+app.use(fileupload());
+
+//body parser
+app.use(bodyparser.urlencoded({extended:true}));
+app.use(bodyparser.json());
+
 //routes
 
 app.use('/', home);
 app.use('/admin',admin);
-app.use('/admin/posts', posts);
+
 
 //port listening
 app.listen(3000,()=>{
